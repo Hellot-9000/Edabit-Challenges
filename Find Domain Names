@@ -1,0 +1,13 @@
+import socket
+
+def get_domain_from_user_input():
+    try:
+        ip_address = input("Enter an IP address: ")
+        domain_name, _, _ = socket.gethostbyaddr(ip_address)
+        return domain_name
+    except socket.herror as e:
+        return str(e)
+
+# Example usage:
+domain = get_domain_from_user_input()
+print(f"Domain for the provided IP address: {domain}")
