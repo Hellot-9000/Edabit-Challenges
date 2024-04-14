@@ -1,0 +1,28 @@
+/*Challenge!
+Create a function to find only the root value of 'x' in any quadradic equation 'ax^2 + bx + c'
+
+here it is! */
+
+#include <iostream>
+#include <cmath> // for sqrt() function
+
+double quadraticEquation(int a, int b, int c) {
+    double discriminant = b*b - 4*a*c;
+    if (discriminant < 0) {
+        std::cout << "Error: No real roots" << std::endl;
+        return -1;
+    }
+    double sol1 = (-b - sqrt(discriminant)) / (2*a);
+    double sol2 = (-b + sqrt(discriminant)) / (2*a);
+
+    // return the maximum solution as the root
+    return (sol1 > sol2) ? sol1 : sol2;
+}
+
+int main() {
+    std::cout << quadraticEquation(1, 2, -3) << std::endl;  // ➞ 1
+    std::cout << quadraticEquation(2, -7, 3) << std::endl;  // ➞ 3
+    std::cout << quadraticEquation(1, -12, -28) << std::endl;  // ➞ 14
+
+    return 0;
+}
